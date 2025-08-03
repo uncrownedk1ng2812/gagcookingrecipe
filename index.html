@@ -12,6 +12,14 @@
       max-width: 900px;
       margin: auto;
     }
+    .header-banner {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
     h1 {
       font-size: 2.4em;
       border-bottom: 3px solid #4caf50;
@@ -19,13 +27,44 @@
       padding-bottom: 10px;
       margin-bottom: 30px;
     }
+    .filter-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    label {
+      margin-right: 10px;
+      font-weight: bold;
+    }
+    select.filter-dropdown {
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+      background: linear-gradient(145deg, #ffffff, #e6e6e6);
+      box-shadow: inset 2px 2px 5px #d1d1d1, inset -2px -2px 5px #ffffff;
+    }
+    select.filter-dropdown:focus {
+      outline: none;
+      border-color: #4caf50;
+      box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    }
     .food {
+      display: none;
       background: #fff;
       border: 1px solid #ddd;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
       padding: 20px;
       margin-bottom: 25px;
+    }
+    .food.active {
+      display: block;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .food h2 {
       font-size: 1.6em;
@@ -37,13 +76,26 @@
     .rarity {
       margin-left: 10px;
       font-weight: bold;
-      color: #388e3c;
-      margin-top: 15px;
+      margin-top: 25px;
+      margin-bottom: 5px;
+      display: block;
     }
-    .ingredients {
-      margin-left: 25px;
-      margin-bottom: 10px;
-      color: #444;
+    .rarity-normal { color: green; }
+    .rarity-legendary { color: #fbc02d; }
+    .rarity-mythical { color: #9c27b0; }
+    .rarity-divine { color: #ff9800; }
+    .rarity-prismatic {
+      background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .rarity-rare { color: blue; }
+    .rarity-common { color: red; }
+    .rarity-uncommon { color: green; }
+    .option-label {
+      font-weight: bold;
+      color: #00796b;
+      margin-top: 8px;
     }
     ul {
       margin-top: 5px;
@@ -53,28 +105,13 @@
     li {
       margin-bottom: 6px;
     }
-    em {
-      color: #757575;
-    }
-      .filter-dropdown {
-      padding: 10px 14px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 1em;
-      background: linear-gradient(145deg, #ffffff, #e6e6e6);
-      box-shadow: inset 2px 2px 5px #d1d1d1, inset -2px -2px 5px #ffffff;
-    }
-
-    .filter-dropdown:focus {
-      outline: none;
-      border-color: #4caf50;
-      box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
-    }
-</style>
+  </style>
 </head>
 <body>
-  <img src="https://i.imgur.com/9WQ7VR9.png" alt="Grow a Garden Banner" style="width: 100%; height: auto; max-height: 200px; object-fit: cover; display: block; margin: auto; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-     <!-- Event Cooking Rewards Section -->
+  <img src="https://i.imgur.com/9WQ7VR9.png" alt="Grow a Garden Banner" class="header-banner">
+  <h1>Grow a Garden Cooking Recipes</h1>
+  
+  <!-- Event Cooking Rewards Section -->
 <div class="collapsible-section">
   <button class="collapsible">🎁 Event Cooking Rewards</button>
   <div class="content">
@@ -137,8 +174,7 @@
   }
 </style>
   
-
-<div class="filter-container">
+  <div class="filter-container">
     <label for="food-select">Choose Food:</label>
     <select id="food-select" class="filter-dropdown" onchange="filterFoods()">
       <option value="">-- Select Food --</option>
