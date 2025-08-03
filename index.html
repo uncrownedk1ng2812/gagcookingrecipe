@@ -56,7 +56,21 @@
     em {
       color: #757575;
     }
-  </style>
+      .filter-dropdown {
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+      background: linear-gradient(145deg, #ffffff, #e6e6e6);
+      box-shadow: inset 2px 2px 5px #d1d1d1, inset -2px -2px 5px #ffffff;
+    }
+
+    .filter-dropdown:focus {
+      outline: none;
+      border-color: #4caf50;
+      box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    }
+</style>
 </head>
 <body>
   <img src="https://i.imgur.com/9WQ7VR9.png" alt="Grow a Garden Banner" style="width: 100%; height: auto; max-height: 200px; object-fit: cover; display: block; margin: auto; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
@@ -72,6 +86,41 @@
   </div>
 
   <h1>Grow a Garden Cooking Recipes</h1>
+  <label for="foodFilter" style="font-weight: bold; display: block; margin-bottom: 10px;">🍽️ Pilih resep makanan:</label>
+  <select id="foodFilter" class="filter-dropdown" onchange="filterFoods()" style="padding: 8px; border-radius: 5px; border: 1px solid #ccc; margin-bottom: 30px;">
+    <option value="all">Tampilkan Semua</option>
+    <option value="Salad">Salad</option>
+    <option value="Soup">Soup</option>
+    <option value="Sandwich">Sandwich</option>
+    <option value="Pie">Pie</option>
+    <option value="Burger">Burger</option>
+    <option value="Hot Dog">Hot Dog</option>
+    <option value="Waffle">Waffle</option>
+    <option value="Ice Cream">Ice Cream</option>
+    <option value="Donut">Donut</option>
+    <option value="Sushi">Sushi</option>
+    <option value="Cake">Cake</option>
+    <option value="Pizza">Pizza</option>
+  </select>
+  <script>
+    function filterFoods() {
+      const selected = document.getElementById("foodFilter").value;
+      const foods = document.querySelectorAll(".food");
+      foods.forEach(div => {
+        const isVisible = (selected === "all" || div.querySelector("h2").innerText === selected);
+        div.style.display = isVisible ? "block" : "none";
+        div.style.opacity = isVisible ? 1 : 0;
+        div.style.transform = isVisible ? "scale(1)" : "scale(0.95)";
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const foods = document.querySelectorAll(".food");
+      foods.forEach(div => {
+        div.style.transition = "all 0.3s ease";
+      });
+    });
+  </script>
 
   <div class="food">
     <h2>Salad</h2>
