@@ -125,7 +125,20 @@
     }
 .pill-grid { display:flex; flex-wrap:wrap; gap:8px; margin-top:6px; }
 .pill { background:#fff; border:1px solid #e5e7eb; border-radius:999px; padding:6px 10px; font-weight:600; }
-
+.food ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+  }
+  .food ul li {
+    margin-bottom: 5px;
+    line-height: 1.4em;
+  }
+  @media (max-width: 600px) {
+    .food ul li {
+      display: block;
+      word-wrap: break-word;
+    }
+  }
   </style>
 </head>
 <body>
@@ -995,5 +1008,6 @@
   </script>
 </body>
 </html>
+
 
 
