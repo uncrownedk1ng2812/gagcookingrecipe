@@ -123,8 +123,47 @@
     li {
       margin-bottom: 6px;
     }
-.pill-grid { display:flex; flex-wrap:wrap; gap:8px; margin-top:6px; }
-.pill { background:#fff; border:1px solid #e5e7eb; border-radius:999px; padding:6px 10px; font-weight:600; }
+.pill-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px 8px;            /* row-gap, column-gap */
+  align-items:flex-start;  /* hindari tabrakan baseline */
+}
+
+.pill{
+  display:inline-flex;          /* bikin tinggi konsisten */
+  align-items:center;
+  justify-content:center;
+  box-sizing:border-box;
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:999px;
+  padding:6px 12px;
+  font-weight:600;
+  line-height:1.2;             /* stabilkan tinggi */
+  white-space:normal;          /* boleh multi-line */
+  word-break:break-word;       /* pecah kata panjang */
+  max-width:100%;              /* jangan melebar keluar container */
+  text-align:center;
+}
+.pill.nowrap{ white-space:nowrap; text-overflow:ellipsis; overflow:hidden; }
+
+/* Mobile tweaks */
+@media (max-width: 600px){
+  .pill{ font-size:12px; padding:6px 10px; }
+  .pill-grid{ gap:8px 6px; }
+}
+
+/* Opsi: super rapi di HP -> grid 2 kolom */
+@media (max-width: 480px){
+  .pill-grid{
+    display:grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap:8px;
+  }
+  .pill{ width:100%; } /* biar tiap pill isi satu sel grid */
+}
+
 .food ul {
     padding-left: 20px;
     margin-bottom: 15px;
@@ -139,10 +178,31 @@
       word-wrap: break-word;
     }
   }
+
+  .highlight-box {
+  background: #fff7d1; /* kuning lembut */
+  border: 2px solid #facc15;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  color: #444;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.highlight-box h2 {
+  margin-top: 0;
+  font-size: 1.4em;
+  color: #b45309; /* coklat-oranye */
+}
+
+.highlight-box ul {
+  margin: 6px 0 0 20px;
+}
+
   </style>
 </head>
 <body>
-  <img src="https://i.imgur.com/EmMiCl1.jpeg" alt="Grow a Garden Banner" class="header-banner">
+  <img src="https://i.imgur.com/9WQ7VR9.png" alt="Grow a Garden Banner" class="header-banner">
   <h1>Grow a Garden Cooking Recipes</h1>
   
 <!-- Event Cooking Rewards Section (Updated with Indicator) -->
@@ -232,7 +292,7 @@
       <span class="pill">Beanstalk</span><span class="pill">Bell Pepper</span><span class="pill">Blood Banana</span>
       <span class="pill">Blueberry</span><span class="pill">Bone Blossom</span><span class="pill">Burning Bud</span>
       <span class="pill">Cacao</span><span class="pill">Candy Blossom</span><span class="pill">Cactus</span>
-      <span class="pill">Cauliflower</span><span class="pill">Celestiberry / Firefly Fern</span><span class="pill">Coconut</span>
+      <span class="pill nowrap">Cauliflower</span><span class="pill">Celestiberry / Firefly Fern</span><span class="pill">Coconut</span>
       <span class="pill">Corn</span><span class="pill">Crown Melon</span><span class="pill">Dragon Fruit</span>
       <span class="pill">Dragon Pepper</span><span class="pill">Elder Strawberry</span><span class="pill">Elephant Ears</span>
       <span class="pill">Ember Lily</span><span class="pill">Enkaku</span><span class="pill">Fossilight</span>
@@ -1006,9 +1066,44 @@
       });
     }
   </script>
+
+<div class="highlight-box">
+  <h2>⚡ Cara Cepat Menyelesaikan Kitchen Storm Event & Penjelasan Update</h2>
+  <p>
+    Update Kitchen Storm menghadirkan NPC baru berbentuk tikus. Untuk ikut event, pemain wajib memberikan makanan bermutasi kepada tikus, lalu akan mendapat 3 pilihan hadiah secara acak.
+  </p>
+  <p>
+    Hadiah dari Kulenarian Chest mencakup tanaman langka (rubarb, badland pepper, king cabbage) dan pet baru (Bacon Pig, Hot Dog Ductionson, Lobster Termider). Ada juga Gourmet Seed Pack, Kitchen Crate, pet baru seperti Sunny Side Chicken & Gorilla Chef, serta berbagai aksesoris baru.
+  </p>
+  <p>
+    Cara membuat makanan bermutasi: masukkan bahan panen ke kuali hingga persentase mutasi >90%. Gunakan pet pemberi mutasi (Hanibi, Scarlet Meku, Teroducttol) dan pet penyebar mutasi (T-Rex, Spinosaurus). Pet duplikasi panen juga mempercepat progres.
+  </p>
+  <p>
+    Semakin tinggi persentase mutasi, semakin baik hasilnya. Resep kadang berubah otomatis oleh sistem, sehingga hasil masakan bisa berbeda dari rencana.
+  </p>
+  <p>
+    Resep makanan rarity tinggi (Prismatic & Transcendent) kini lebih mudah dibuat. Ada makanan baru: Smoothie, Candy Apple, Sweety, Porridge. Resep lengkap akan dibagikan di komentar.
+  </p>
+  <p>
+    Fitur baru pet slot memungkinkan menyimpan kombinasi pet aktif untuk kebutuhan berbeda tanpa ganti manual. Ada 7 tanaman baru: Rubarb, Spring Onion, Butternut Squash, Prickle Fruit, Bittermelon, Badland Pepper, King Cabbage.
+  </p>
+  <p>
+    Total 6 pet baru:
+    <ul>
+      <li><b>Junkbot</b>: beri mutasi oil tiap 14 menit</li>
+      <li><b>Gorilla Chef</b>: peluang 5% duplikasi masakan dengan Cooking Couldron / Cooking Pot</li>
+      <li><b>Sunny Side Chicken</b>: percepat menetas telur 20%</li>
+      <li><b>Bacon Pig</b>: aura 2x peluang varian tanaman</li>
+      <li><b>Hot Dog Ductionson</b>: sebar mustard/kecap yang memberi buff cooldown/EXP</li>
+      <li><b>Lobster Termider</b>: mutasi molton (20%) & meteorik (10%)</li>
+    </ul>
+  </p>
+  <p>
+    Tambahan lain: aksesoris flamingo, cuaca baru Kitchen Storm (masakan 2x lebih cepat & mutasi aromatik), UI kosmetik baru, nerf untuk Mochi Mouse, dan buff pasif French Fry Ferret.
+  </p>
+</div>
+
 </body>
 </html>
-
-
 
 
