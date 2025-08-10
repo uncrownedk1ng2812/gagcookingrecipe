@@ -80,15 +80,32 @@
       margin-bottom: 5px;
       display: block;
     }
-    .rarity-normal { color: green; }
-    .rarity-legendary { color: #fbc02d; }
-    .rarity-mythical { color: #9c27b0; }
-    .rarity-divine { color: #ff9800; }
-    .rarity-prismatic {
-      background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+    .rarity-normal { 
+  color: green; 
+}
+.rarity-legendary { 
+  color: #fbc02d; 
+}
+.rarity-mythical { 
+  color: #9c27b0; 
+}
+.rarity-divine { 
+  color: #ff9800; 
+}
+.rarity-prismatic {
+  background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  text-shadow: 0 0 5px #fff, 0 0 10px #ff00de, 0 0 15px #00e6ff;
+}
+.rarity-transcendent {
+  background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  text-shadow: 0 0 5px #ff00ff, 0 0 15px #00ffff, 0 0 25px #ffff00;
+}
     .rarity-rare { color: blue; }
     .rarity-common { color: red; }
     .rarity-uncommon { color: green; }
@@ -105,74 +122,179 @@
     li {
       margin-bottom: 6px;
     }
+.pill-grid { display:flex; flex-wrap:wrap; gap:8px; margin-top:6px; }
+.pill { background:#fff; border:1px solid #e5e7eb; border-radius:999px; padding:6px 10px; font-weight:600; }
+
   </style>
 </head>
 <body>
   <img src="https://i.imgur.com/9WQ7VR9.png" alt="Grow a Garden Banner" class="header-banner">
   <h1>Grow a Garden Cooking Recipes</h1>
   
-  <!-- Event Cooking Rewards Section -->
+<!-- Event Cooking Rewards Section (Updated with Indicator) -->
 <div class="collapsible-section">
-  <button class="collapsible">🎁 Event Cooking Rewards</button>
+  <button class="collapsible">🎁 Event Cooking Rewards <span style="float:right; font-size:0.85em; opacity:0.8;">(Click to Expand/Collapse)</span></button>
   <div class="content">
-    <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 30px; font-size: 0.95em;">
-      <div style="color: red;">🧅 <strong>Common</strong>: Watering Can, Fence, Burnt Spray</div>
-      <div style="color: green;">🍊 <strong>Uncommon</strong>: Food Crate, Reclaimer, Corn Seed</div>
-      <div style="color: blue;">🧀 <strong>Rare</strong>: Advanced Sprinkler, Gourmet Seed, Artichoke</div>
-      <div style="color: gold;">🍗 <strong>Legendary</strong>: Gourmet Egg, Toys, HoneyGlazed Spray</div>
-      <div style="color: purple;">🍖 <strong>Mythical</strong>: Pretzel Cart, Medium Toy, Gourmet Seed x2</div>
-      <div style="color: orange;">🌈 <strong>Divine</strong>: Fried Spray, Pet Shard, Food Crate, Mochi Mouse</div>
-      <div style="background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet); -webkit-background-clip: text; color: transparent;">💎 <strong>Prismatic</strong>: Taco Fern, Gourmet Egg x3, Pancake Stack</div>
+    <!-- REWARD SOURCES SPLIT -->
+    <div class="rewards-grid">
+      <!-- Chris P Rewards -->
+      <div class="reward-card">
+        <h3>👨‍🍳 Chris P Rewards</h3>
+        <ul class="reward-list">
+          <li><span class="qty">500</span> <span class="badge-tier common">Common</span></li>
+          <li>x1 Mutation Spray Burnt <span class="badge-tier common">Common</span></li>
+          <li>x1 Fork Fence <span class="badge-tier common">Common</span></li>
+          <li>x5 Watering Cans <span class="badge-tier common">Common</span></li>
+          <li>x1 Food Crate <span class="badge-tier uncommon">Uncommon</span></li>
+          <li>x1 Reclaimer <span class="badge-tier uncommon">Uncommon</span></li>
+          <li>x3 Corn Seeds <span class="badge-tier uncommon">Uncommon</span></li>
+          <li>x1 Gourmet Seed Pack <span class="badge-tier rare">Rare</span></li>
+          <li>x1 Artichoke Seed <span class="badge-tier rare">Rare</span></li>
+          <li>x1 Advanced Sprinkler <span class="badge-tier rare">Rare</span></li>
+          <li>x2 Small Toys <span class="badge-tier legendary">Legendary</span></li>
+          <li>x1 Gourmet Egg <span class="badge-tier legendary">Legendary</span></li>
+          <li>x2 Mutation Spray HoneyGlazed <span class="badge-tier legendary">Legendary</span></li>
+          <li>x1 Pretzel Cart <span class="badge-tier mythical">Mythical</span></li>
+          <li>x2 Gourmet Seed Packs <span class="badge-tier mythical">Mythical</span></li>
+          <li>x1 Medium Toy <span class="badge-tier mythical">Mythical</span></li>
+          <li>x1 Mochi Mouse <span class="badge-tier divine">Divine</span></li>
+          <li>x2 Food Crates <span class="badge-tier divine">Divine</span></li>
+          <li>x1 Pet Mutation Shard Fried <span class="badge-tier divine">Divine</span></li>
+          <li>x3 Mutation Spray Fried <span class="badge-tier divine">Divine</span></li>
+          <li>x1 Pancake Stack Cosmetic <span class="badge-tier prismatic">Prismatic</span></li>
+          <li>x1 Taco Fern Seed <span class="badge-tier prismatic">Prismatic</span></li>
+          <li>x3 Gourmet Eggs <span class="badge-tier prismatic">Prismatic</span></li>
+          <li>x4 Gourmet Seed Packs <span class="badge-tier prismatic">Prismatic</span></li>
+        </ul>
+      </div>
+      <!-- Rat Connoisseur Rewards -->
+      <div class="reward-card">
+        <h3>🐀 Rat Connoisseur Rewards</h3>
+        <ul class="reward-list">
+          <li>1x Gourmet Egg <span class="percent">50%</span></li>
+          <li>1x Kitchen Crate <span class="percent">50%</span></li>
+          <li>1x Gourmet Seed Pack <span class="percent">50%</span></li>
+          <li>1x Culinarian Chest <span class="percent">40%</span></li>
+          <li>1x Spring Onion Seed <span class="percent">30%</span></li>
+          <li>1x Cooking Cauldron <span class="percent">30%</span></li>
+          <li>1x Kitchen Flooring <span class="percent">30%</span></li>
+          <li>1x Sunny-Side Chicken <span class="percent">30%</span></li>
+          <li>1x Kitchen Cart <span class="percent">20%</span></li>
+          <li>1x Pet Mutation Shard Aromatic <span class="percent">20%</span></li>
+          <li>1x Smoothie Fountain <span class="percent">15%</span></li>
+          <li>1x Butternut Squash Seed <span class="percent">8%</span></li>
+          <li>1x Pricklefruit Seed <span class="percent">5%</span></li>
+          <li>1x Gorilla Chef <span class="percent">5%</span></li>
+          <li>1x Bitter Melon Seed <span class="percent">3%</span></li>
+        </ul>
+      </div>
     </div>
-    <div style="font-size: 1.5em; font-weight: bold; padding: 12px; background: #ffe082; border-left: 5px solid #ff6f00; color: #bf360c; border-radius: 5px; margin-bottom: 10px;">
-      🌱 Semakin besar tanaman yang digunakan, semakin besar hadiah yang didapat!
+    <!-- Highlight tip -->
+    <div class="highlight-quote">🌱 <strong>Semakin besar tanaman yang digunakan, semakin besar hadiah yang didapat!</strong></div>
+  </div>
+</div>
+<!-- Cooking Recipes Legend -->
+<div class="collapsible-section">
+  <button class="collapsible">📖 Cooking Recipes Info <span style="float:right; font-size:0.85em; opacity:0.8;">(Click to Expand/Collapse)</span></button>
+  <div class="content">
+    <ul class="legend-list">
+      <li>✅ = confirmed and working</li>
+      <li>⌛ = needs testing</li>
+      <li>🔄 = only when <strong>Chris P.</strong> is craving that food</li>
+      <li>➡️ = ingredients must be in a specific order</li>
+      <li>❌ = didn’t work / will be removed (or can fail/become a soup)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Planting Ingredients Recap -->
+<div class="collapsible-section">
+  <button class="collapsible">🧺 Planting Recap: Bahan yang Perlu Ditanam <span style="float:right; font-size:0.85em; opacity:0.8;">(Click to Expand/Collapse)</span></button>
+  <div class="content">
+    <p class="muted" style="margin:6px 0 12px;color:#6b7280;">Ringkasan semua tanaman/buah/bahan tumbuhan yang muncul di resep masakan.</p>
+    <div class="pill-grid">
+      <span class="pill">Apple</span><span class="pill">Amber Spine</span><span class="pill">Any Crop</span>
+      <span class="pill">Artichoke</span><span class="pill">Banana</span><span class="pill">Bamboo</span>
+      <span class="pill">Beanstalk</span><span class="pill">Bell Pepper</span><span class="pill">Blood Banana</span>
+      <span class="pill">Blueberry</span><span class="pill">Bone Blossom</span><span class="pill">Burning Bud</span>
+      <span class="pill">Cacao</span><span class="pill">Candy Blossom</span><span class="pill">Cactus</span>
+      <span class="pill">Cauliflower</span><span class="pill">Celestiberry / Firefly Fern</span><span class="pill">Coconut</span>
+      <span class="pill">Corn</span><span class="pill">Crown Melon</span><span class="pill">Dragon Fruit</span>
+      <span class="pill">Dragon Pepper</span><span class="pill">Elder Strawberry</span><span class="pill">Elephant Ears</span>
+      <span class="pill">Ember Lily</span><span class="pill">Enkaku</span><span class="pill">Fossilight</span>
+      <span class="pill">Giant Pinecone</span><span class="pill">Grape</span><span class="pill">Grand Tomato</span>
+      <span class="pill">Grand Volcania</span><span class="pill">Green Apple</span><span class="pill">Hive Fruit</span>
+      <span class="pill">Horsetail</span><span class="pill">Jalapeno</span><span class="pill">Kiwi</span>
+      <span class="pill">Liberty Lily</span><span class="pill">Lilac</span><span class="pill">Lingonberry</span>
+      <span class="pill">Lucky Bamboo</span><span class="pill">Lumira</span><span class="pill">Mango</span>
+      <span class="pill">Maple Apple</span><span class="pill">Moon Blossom</span><span class="pill">Moon Melon</span>
+      <span class="pill">Moonflower</span><span class="pill">Mushroom</span><span class="pill">Onion</span>
+      <span class="pill">Paradise Petal</span><span class="pill">Peach</span><span class="pill">Pear</span>
+      <span class="pill">Pepper</span><span class="pill">Pineapple</span><span class="pill">Pink Lily</span>
+      <span class="pill">Prickly Pear</span><span class="pill">Prismatic Crop</span><span class="pill">Raspberry</span>
+      <span class="pill">Rose</span><span class="pill">Sakura Bush</span><span class="pill">Soft Sunshine</span>
+      <span class="pill">Spiked Mango</span><span class="pill">Strawberry</span><span class="pill">Sugar Apple</span>
+      <span class="pill">Sunflower</span><span class="pill">Taco Fern</span><span class="pill">Tall Asparagus</span>
+      <span class="pill">Tomato</span><span class="pill">Tranquil Bloom</span><span class="pill">Twisted Tangle</span>
+      <span class="pill">Veinpetal</span><span class="pill">Violet Corn</span><span class="pill">Watermelon</span>
+      <span class="pill">Zenflare</span>
     </div>
   </div>
 </div>
 
+<style>
+  /* layout for rewards split */
+  .rewards-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:10px}
+  @media(min-width:800px){.rewards-grid{grid-template-columns:1fr 1fr}}
+  .reward-card{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+  .reward-card h3{margin:0 0 10px 0;font-size:1.1rem;color:#2c3e50}
+  .reward-list{list-style:none;margin:0;padding-left:0}
+  .reward-list li{margin:6px 0;padding:6px 8px;border-radius:8px;background:#fafafa;border:1px dashed #eee;display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .reward-list .qty{font-weight:700;color:#374151}
+  .percent{font-weight:700;color:#111827;background:#eef2ff;border:1px solid #c7d2fe;border-radius:6px;padding:2px 8px}
+
+  /* tier badges — stronger than Divine */
+  .badge-tier{font-weight:700;padding:2px 8px;border-radius:999px;border:1px solid transparent}
+  .badge-tier.common{color:#b91c1c;background:#fee2e2;border-color:#fecaca}
+  .badge-tier.uncommon{color:#166534;background:#dcfce7;border-color:#bbf7d0}
+  .badge-tier.rare{color:#1d4ed8;background:#dbeafe;border-color:#bfdbfe}
+  .badge-tier.legendary{color:#92400e;background:#fef3c7;border-color:#fde68a}
+  .badge-tier.mythical{color:#6b21a8;background:#f3e8ff;border-color:#e9d5ff}
+  .badge-tier.divine{color:#c2410c;background:#ffedd5;border-color:#fed7aa}
+  .badge-tier.prismatic{background:linear-gradient(90deg,red,orange,yellow,green,blue,indigo,violet);-webkit-background-clip:text;color:transparent;border-color:#e9d5ff;box-shadow:0 0 8px rgba(255,255,255,.5),0 0 16px rgba(0,230,255,.35)}
+
+  .highlight-quote{font-size:1.1rem;font-weight:800;padding:12px 14px;background:#fff59d;border-left:6px solid #f57f17;color:#e65100;border-radius:8px;margin-top:16px}
+
+  /* collapsible base (kept from earlier) */
+  .collapsible{background-color:#4caf50;color:#fff;cursor:pointer;padding:12px;width:100%;border:none;text-align:left;outline:none;font-size:16px;border-radius:8px;margin:10px 0}
+  .collapsible:hover{background-color:#45a049}
+  .content{padding:12px 14px;display:none;overflow:hidden;background-color:#f9f9f9;border:1px solid #ddd;border-radius:8px}
+
+  /* rarity text classes for recipe sections (also add transcendent) */
+  .rarity-normal{color:green}
+  .rarity-legendary{color:#fbc02d}
+  .rarity-mythical{color:#9c27b0}
+  .rarity-divine{color:#ff9800}
+  .rarity-prismatic{background:linear-gradient(90deg,red,orange,yellow,green,blue,indigo,violet);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:700;text-shadow:0 0 5px #fff,0 0 10px #ff00de,0 0 15px #00e6ff}
+  .rarity-transcendent{background:linear-gradient(135deg,#ff00ff,#00ffff,#ffff00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:700;text-shadow:0 0 6px #ff00ff,0 0 14px #00ffff,0 0 24px #ffff00}
+
+  /* legend styling */
+  .legend-list{margin:6px 0 0 16px}
+  .legend-list li{margin:6px 0}
+</style>
+
 <script>
+  /* keep collapsible behavior */
   const coll = document.getElementsByClassName("collapsible");
   for (let i = 0; i < coll.length; i++) {
     coll[i].addEventListener("click", function() {
       this.classList.toggle("active");
       let content = this.nextElementSibling;
-      if (content.style.display === "block") {
-        content.style.display = "none";
-      } else {
-        content.style.display = "block";
-      }
+      content.style.display = (content.style.display === "block") ? "none" : "block";
     });
   }
 </script>
 
-<style>
-  .collapsible {
-    background-color: #4caf50;
-    color: white;
-    cursor: pointer;
-    padding: 12px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 16px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-  }
-
-  .collapsible:hover {
-    background-color: #45a049;
-  }
-
-  .content {
-    padding: 0 18px;
-    display: none;
-    overflow: hidden;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-</style>
   
   <div class="filter-container">
     <label for="food-select">Choose Food:</label>
@@ -189,6 +311,11 @@
       <option value="sushi">Sushi</option>
       <option value="cake">Cake</option>
       <option value="burger">Burger</option>
+      <option value="smoothie">Smoothie</option>
+      <option value="candyapple">Candy Apple</option>
+      <option value="sweettea">Sweet Tea</option>
+      <option value="porridge">Porridge</option>
+      <option value="spaghetti">Spaghetti</option>
     </select>
   </div>
 
@@ -197,333 +324,662 @@
     <span class="rarity rarity-normal">Normal</span>
     <ul>
       <li><span class="option-label">1st Option✅:</span> 2x Tomato</li>
-      <li><span class="option-label">2nd Option:</span> 1x Strawberry, 1x Bell Pepper</li>
-      <li><span class="option-label">3rd Option:</span> 2x Blood Banana, 2x Tomato</li>
-      <li><span class="option-label">4th Option:</span> 1x Onion, 1x Pear</li>
-      <li><span class="option-label">5th Option:</span> 2x Tomato, 1x Onion</li>
-      <li><span class="option-label">6th Option✅:</span> 5x Tomato</li>
-      <li><span class="option-label">7th Option✅:</span> 1x Sugar Apple, 1x Bone Blossom, 1x Tomato</li>
+      <li><span class="option-label">2nd Option✅:</span> 1x Tomato, 1x Carrot</li>
+      <li><span class="option-label">3rd Option✅:</span> 1x Onion, 1x Pear</li>
+      <li><span class="option-label">4th Option✅:</span> 2x Tomato, 1x Onion</li>
+      <li><span class="option-label">5th Option✅:</span> 5x Tomato</li>
+      <li><span class="option-label">6th Option✅:</span> 1x Sugar Apple, 1x Bone Blossom, 1x Tomato</li>
     </ul>
     <span class="rarity rarity-legendary">Legendary</span>
     <ul>
       <li><span class="option-label">1st Option✅:</span> 2x Blood Banana, 2x Tomato</li>
       <li><span class="option-label">2nd Option✅:</span> 1x Bamboo, 1x Mango, 1x Pineapple, 1x Tomato, 1x Beanstalk</li>
+      <li><span class="option-label">3rd Option✅:</span> 1x Bamboo, 1x Beanstalk, 1x Strawberry</li>
+      <li><span class="option-label">4th Option✅:</span> 1x Mango, 1x Tomato</li>
+      <li><span class="option-label">5ht Option✅:</span> 1x Artichoke, 1x Sugar Apple</li>
     </ul>
     <span class="rarity rarity-mythical">Mythical</span>
     <ul>
-      <li><span class="option-label">1st Option✅:</span> 1x Tomato, 1x Giant Pinecone</li>
-      <li><span class="option-label">2nd Option✅:</span> 2x Sugar Apple, 1x Pepper, 1x Tomato</li>
+      <li><span class="option-label">1st Option✅:</span> 1x Tomato, 1x Prismatic Fruit</li>
+      <li><span class="option-label">2nd Option✅:</span> 1x Tomato, 2x Pepper</li>
+      <li><span class="option-label">3rd Option✅:</span> 1x Bamboo, 1x Pepper</li>
+      <li><span class="option-label">4th Option✅:</span> 1x Tomato, 1x Pepper, 1x Sugar Apple</li>
+      <li><span class="option-label">4th Option✅:</span> 1x Tomato, 1x Bone Blossom</li>
+      <li><span class="option-label">5th Option✅:</span> 1x Bamboo, 1x Sugar Apple, 2x Bamboo, 1x Beanstalk</li>
     </ul>
     <span class="rarity rarity-divine">Divine</span>
-    <ul>
-      <li><span class="option-label">1st Option✅:</span> 3x Sugar Apple, 1x Pepper, 1x Pineapple</li>
-      <li><span class="option-label">2nd Option✅:</span> 2x Bone Blossom, 1x Pineapple, 1x Pepper, 1x Tomato</li>
-    </ul>
-    <span class="rarity rarity-prismatic">Prismatic</span>
-    <ul>
-      <li><span class="option-label">1st Option✅:</span> 1x Tomato, 4x Bone Blossom</li>
-      <li><span class="option-label">2nd Option:</span> 1x Bell Pepper, 4x Bone Blossom</li>
-      <li><span class="option-label">3rd Option:</span> 5x Grand Tomato</li>
-    </ul>
-  </div>
+  <ul>
+    <li><span class="option-label">1st Option✅:</span> 1x Tomato, 3x Prismatic Crop</li>
+    <li><span class="option-label">2nd Option✅:</span> 1x Pineapple, 1x Pepper, 3x Prismatic Crop</li>
+    <li><span class="option-label">3rd Option✅:</span> 4x-5x Grand Tomato</li>
+    <li><span class="option-label">4th Option✅:</span> 2x Tomato, 3x Bone Blossom</li>
+    <li><span class="option-label">5th Option✅:</span> 2x Mango, 2x Bone Blossom, 1x Bell Pepper</li>
+    <li><span class="option-label">6th Option✅:</span> 1x Beanstalk, 1x Pineapple</li>
+    <li><span class="option-label">7th Option✅:</span> 1x Onion, 3x Prismatic Crops</li>
+    <li><span class="option-label">8th Option✅:</span> 1x Tomato, 1x Sunflower, 3x Bone Blossom</li>
+  </ul>
+
+  <span class="rarity rarity-prismatic">Prismatic</span>
+  <ul>
+    <li><span class="option-label">1st Option✅:</span> 1x Tomato, 4x Bone Blossom</li>
+    <li><span class="option-label">2nd Option✅:</span> 1x Grand Tomato, 1x Bone Blossom</li>
+    <li><span class="option-label">3rd Option✅:</span> 1x Bamboo, 1x Beanstalk, 3x Bone Blossom</li>
+    <li><span class="option-label">4th Option✅:</span> 4x Beanstalk, 1x Jalapeno</li>
+    <li><span class="option-label">5th Option✅:</span> 1x Tomato, 3x Prismatic Crop</li>
+  </ul>
+
+  <span class="rarity rarity-transcendent">Transcendent</span>
+  <ul>
+    <li><span class="option-label">1st Option✅:</span> 1x Grand Tomato//Tomato, 4x Bone Blossom</li>
+    <li><span class="option-label">2nd Option✅:</span> 2x Giant Pinecone, 2x Bone Blossom, 1x Bell Pepper</li>
+  </ul>
+</div>
 
   <div id="sandwich" class="food">
-    <h2>🥪 Sandwich</h2>
-    <span class="rarity rarity-normal">Normal</span>
-    <ul>
-      <li><span class="option-label">1st Option✅:</span> 2x Tomato, 1x Corn</li>
-    </ul>
-    <span class="rarity rarity-legendary">Legendary</span>
-    <ul>
-      <li><span class="option-label">1st Option✅:</span> 1x Tomato, 1x Corn, 1x Cacao</li>
-      <li><span class="option-label">2nd Option✅:</span> 1x Tomato, 1x Corn, 1x Elder Strawberry</li>
-    </ul>
-    <span class="rarity rarity-mythical">Mythical</span>
-    <ul>
-      <li><span class="option-label">1st Option✅:</span> 2x Giant Pinecone, 1x Tomato, 1x Corn</li>
-      <li><span class="option-label">2nd Option:</span> 1x Tomato, 1x Corn, 1x Elder Strawberry, 1x Sugar Apple</li>
-      <li><span class="option-label">3rd Option:</span> 1x Tomato, 1x Corn, 1x Elder Strawberry, 1x Sugar Apple, 1x Ember Lily</li>
-    </ul>
-    <span class="rarity rarity-divine">Divine</span>
-    <ul>
-      <li><span class="option-label">1st Option✅:</span> 3x Bone Blossom, 1x Tomato, 1x Corn</li>
-    </ul>
-    <span class="rarity rarity-prismatic">Prismatic</span>
-    <ul>
-      <li>TBA</li>
-    </ul>
-  </div>
-
-  <div id="pie" class="food">
-  <h2>🥧 Pie</h2>
+  <h2>🥪 Sandwich</h2>
+  
   <span class="rarity rarity-normal">Normal</span>
   <ul>
-    <li><span class="option-label">1st Option:</span> 1x Sugar Apple, 1x Pumpkin, 1x Giant Pinecone, 1x Apple, 1x Corn, 1x Pumpkin</li>
+    <li><span class="option-label">1st Option✅:</span> 2x Tomato, 1x Corn</li>
   </ul>
+
   <span class="rarity rarity-legendary">Legendary</span>
   <ul>
-    <li><span class="option-label">1st Option:</span> 1x Pumpkin, 1x Moon Melon</li>
-    <li><span class="option-label">2nd Option:</span> 1x Pumpkin, 1x Giant Pinecone, 1x Corn, 1x Apple</li>
-    <li><span class="option-label">3rd Option:</span> 1x Pumpkin, 1x Pineapple</li>
+    <li><span class="option-label">1st Option✅:</span> 2x Giant Pinecone, 1x Tomato, 1x Corn</li>
+    <li><span class="option-label">2nd Option✅:</span> 1x Tomato, 1x Corn, 1x Cacao</li>
+    <li><span class="option-label">3rd Option✅:</span> 1x Tomato, 1x Corn, 1x Elder Strawberry</li>
   </ul>
+
+  <span class="rarity rarity-mythical">Mythical</span>
+  <ul>
+    <li><span class="option-label">1st Option✅🔄:</span> 1x Tomato, 1x Corn, 1x Elder Strawberry, 1x Sugar Apple, 1x Ember Lily</li>
+  </ul>
+
+  <span class="rarity rarity-divine">Divine</span>
+  <ul>
+    <li><span class="option-label">1st Option🔄✅:</span> 3x Bone Blossom, 1x Tomato, 1x Corn or 1x Violet Corn</li>
+    <li><span class="option-label">2nd Option🔄➡️✅:</span> 3x Prismatic Crop, 1x Tomato, 1x Corn</li>
+  </ul>
+
+  <span class="rarity rarity-prismatic">Prismatic</span>
+  <ul>
+    <li><span class="option-label">1st Option✅🔄:</span> 1x Corn, 3x Elder Strawberry, 1x Tomato</li>
+  </ul>
+</div>
+
+
+ <div id="pie" class="food">
+  <h2>🥧 Pie</h2>
+
+  <span class="rarity rarity-legendary">Legendary</span>
+  <ul>
+    <li><span class="option-label">1st Option⌛:</span> 1x Pumpkin, 1x Giant Pinecone, 1x Corn, 1x Apple</li>
+    <li><span class="option-label">2nd Option⌛:</span> 1x Pumpkin, 1x Pineapple</li>
+    <li><span class="option-label">3rd Option✅:</span> 1x Jalapeno, 1x Taco Fern, 1x Tall Asparagus, 1x Crown Melon, 1x Twisted Tangle</li>
+    <li><span class="option-label">4th Option✅:</span> 1x Coconut, 1x Pepper, 1x Dragon Fruit, 1x Strawberry</li>
+  </ul>
+
   <span class="rarity rarity-mythical">Mythical</span>
   <ul>
     <li><span class="option-label">1st Option✅:</span> 1x Apple, 1x Pumpkin</li>
-    <li><span class="option-label">2nd Option✅:</span> 1x Sugar Apple, 1x Feijoa, 1x Ember Lily, 1x Coconut, 1x Cauliflower</li>
-    <li><span class="option-label">3rd Option:</span> 1x Pumpkin, 1x Beanstalk</li>
-    <li><span class="option-label">4th Option:</span> 1x Pumpkin, 1x Ember Lily</li>
+    <li><span class="option-label">2nd Option✅🔄:</span> (Also makes Waffle) 1x Pumpkin, 1x Beanstalk</li>
+    <li><span class="option-label">3rd Option✅:</span> 1x Pumpkin, 1x Ember Lily</li>
+    <li><span class="option-label">4th Option✅:</span> 1x Beanstalk, 3x Coconut</li>
   </ul>
+
   <span class="rarity rarity-divine">Divine</span>
   <ul>
-    <li><span class="option-label">1st Option✅:</span> 1x Coconut, 1x Beanstalk</li>
-    <li><span class="option-label">2nd Option:</span> 1x Coconut, 1x Bone Blossom</li>
-    <li><span class="option-label">3rd Option✅:</span> 1x Pepper, 1x Coconut, 2x Elder Strawberry, 1x Celestiberry</li>
+    <li><span class="option-label">1st Option❌:</span> (Now makes Smoothie) 1x Coconut, 1x Beanstalk</li>
+    <li><span class="option-label">2nd Option✅:</span> 1x Sugarglaze, 1x Beanstalk</li>
+    <li><span class="option-label">3rd Option✅:</span> 1x Pepper, 1x Coconut, 2x Elder Strawberry, 1x Celestiberry/Firefly Fern</li>
     <li><span class="option-label">4th Option✅:</span> 3x Sugar Apple, 1x Pumpkin</li>
+    <li><span class="option-label">5th Option✅:</span> 1x Burning Bud, 1x Prickly Pear, 1x Bone Blossom, 1x Giant Pinecone, 1x Coconut</li>
+    <li><span class="option-label">6th Option✅:</span> 1x Bone Blossom, 1x Crown Melon, 1x Fossilight, 2x Sugar Apple</li>
   </ul>
+
   <span class="rarity rarity-prismatic">Prismatic</span>
   <ul>
     <li><span class="option-label">1st Option✅:</span> 4x Bone Blossom, 1x Pumpkin</li>
-    <li><span class="option-label">2nd Option✅:</span> 2x Bone Blossom, 1x Coconut</li>
+    <li><span class="option-label">2nd Option✅:</span> 2x Bone Blossom (also works with 4x to add weight), 1x Coconut</li>
+    <li><span class="option-label">3rd Option✅:</span> 3x Bone Blossom, 1x Sugar Apple, 1x Coconut</li>
+    <li><span class="option-label">4th Option🔄✅:</span> (Also makes Waffle, Ice Cream, Cake) 3x Bone Blossom, 1x Sugar Apple, 1x Sugarglaze</li>
+  </ul>
+
+  <span class="rarity rarity-transcendent">Transcendent</span>
+  <ul>
+    <li><span class="option-label">1st Option✅:</span> 1x Pumpkin, 4x Bone Blossom</li>
+    <li><span class="option-label">1st Option✅:</span> 1x Coconut, 4x Bone Blossom</li>
+    <li><span class="option-label">2nd Option✅:</span> 2x Bone Blossom, 1x Sugarglaze, 1x Sugar Apple</li>
   </ul>
 </div>
+
 
 <div id="waffle" class="food">
   <h2>🧇 Waffle</h2>
+
   <span class="rarity rarity-normal">Normal</span>
   <ul>
-    <li><span class="option-label">1st Option:</span> 1x Pumpkin, 1x Watermelon</li>
-    <li><span class="option-label">2nd Option:</span> 1x Sugar Apple, 1x Watermelon, 1x Corn, 1x Sugarglaze</li>
-    <li><span class="option-label">3rd Option:</span> 1x Strawberry, 1x Coconut</li>
+    <li><span class="option-label">1st Option🔄:</span> 1x Pumpkin, 1x Watermelon</li>
+    <li><span class="option-label">2nd Option✅:</span> 1x Strawberry, 1x Coconut</li>
   </ul>
+
+  <span class="rarity rarity-rare">Rare</span>
+  <ul>
+    <li><span class="option-label">1st Option🔄⌛:</span> 1x Sugarglaze, 2x Jalapeno</li>
+    <li><span class="option-label">2nd Option⌛:</span> 3x Crown Melon</li>
+  </ul>
+
+  <span class="rarity rarity-legendary">Legendary</span>
+  <ul>
+    <li><span class="option-label">1st Option✅:</span> 1x Coconut, 1x Apple, 1x Dragon Fruit, 1x Mango</li>
+    <li><span class="option-label">2nd Option⌛:</span> 2x Raspberry, 3x Coconut</li>
+    <li><span class="option-label">3rd Option🔄⌛:</span> 1x Sugarglaze, 2x Dragon Fruit, 2x Tomato</li>
+  </ul>
+
   <span class="rarity rarity-mythical">Mythical</span>
   <ul>
     <li><span class="option-label">1st Option✅:</span> 1x Coconut, 1x Pineapple</li>
-    <li><span class="option-label">2nd Option:</span> 1x Sugar Apple, 1x Bone Blossom</li>
-    <li><span class="option-label">3rd Option✅:</span> 1x Grape, 1x Coconut, 1x Dragon Fruit, 1x Cactus, 1x Peach</li>
+    <li><span class="option-label">2nd Option✅:</span> 1x Grape, 1x Coconut, 1x Dragon Fruit, 1x Cactus, 1x Peach</li>
+    <li><span class="option-label">3rd Option✅:</span> 1x Coconut, 1x Sugarglaze</li>
+    <li><span class="option-label">4th Option✅:</span> 2x Coconut, 2x Mango</li>
+    <li><span class="option-label">5th Option⌛:</span> 1x Bone Blossom, 1x Apple, 1x Sugarglaze, 1x Paradise Petal, 1x Taco Fern</li>
+    <li><span class="option-label">6th Option⌛:</span> 1x Mango, 1x Crown Melon, 1x Sugar Apple, 1x Pineapple, 1x Peach</li>
   </ul>
+
   <span class="rarity rarity-divine">Divine</span>
   <ul>
     <li><span class="option-label">1st Option✅:</span> 1x Sugar Apple, 1x Coconut</li>
+    <li><span class="option-label">2nd Option🔄✅:</span> 1x Corn, 1x Crown Melon, 3x Sugar Apple</li>
+    <li><span class="option-label">3rd Option✅:</span> 1x Sugar Apple, 1x Blood Banana, 1x Sugarglaze, 1x Grape, 1x Bone Blossom</li>
+    <li><span class="option-label">4th Option🔄✅:</span> 1x Sugarglaze, 1 - 3x Sugar Apple</li>
   </ul>
+
   <span class="rarity rarity-prismatic">Prismatic</span>
   <ul>
-    <li><span class="option-label">1st Option:</span> 1x Sugar Apple, 1x Coconut, 3x Bone Blossom</li>
+    <li><span class="option-label">1st Option➡️🔄✅:</span> 1x Sugar Apple, 1x Coconut, 3x Bone Blossom</li>
+    <li><span class="option-label">2nd Option🔄✅:</span> 1x Sugarglaze, 1x Cacao, 3x Bone Blossom</li>
+    <li><span class="option-label">3rd Option🔄✅:</span> 1x Sugarglaze, 2x Bone Blossom</li>
+  </ul>
+
+  <span class="rarity rarity-transcendent">Transcendent</span>
+  <ul>
+    <li><span class="option-label">1st Option🔄✅:</span> (Recipe Makes Many Cravings) 1x Sugarglaze, 1x Sugar Apple, 3x Bone Blossom</li>
+    <li><span class="option-label">2nd Option:</span> 1x Sugar Apple, 1x Coconut, 3x Bone Blossom</li>
   </ul>
 </div>
 
+
 <div id="hotdog" class="food">
-  <h2>🌭 Hot Dog</h2>
+  <h2>🌭 Hotdog</h2>
+
   <span class="rarity rarity-normal">Normal</span>
   <ul>
-    <li><span class="option-label">1st Option:</span> 1x Pepper, 1x Corn or Banana</li>
-    <li><span class="option-label">2nd Option:</span> 2x Corn, 1x Watermelon</li>
-    <li><span class="option-label">3rd Option:</span> 1x Pink Lily, 1x Elephant Ears, 1x Bone Blossom, 1x Violet Corn</li>
-    <li><span class="option-label">4th Option:</span> 2x Bone Blossom, 1x Pepper, 1x Corn</li>
-    <li><span class="option-label">5th Option:</span> 1 or 2x Bone Blossom, 1x Violet Corn</li>
+    <li><span class="option-label">1st Option⌛:</span> 2x Corn, 1x Watermelon</li>
+    <li><span class="option-label">2nd Option⌛:</span> 1x Pepper, 1x Banana</li>
+    <li><span class="option-label">3rd Option⌛:</span> 2x Bone Blossom, 1x Pepper, 1x Corn</li>
+    <li><span class="option-label">4th Option⌛:</span> 1x or 2x Bone Blossom, 1x Violet Corn</li>
+    <li><span class="option-label">5th Option⌛:</span> 2x Corn, 1x Cactus</li>
   </ul>
+
   <span class="rarity rarity-legendary">Legendary</span>
   <ul>
     <li><span class="option-label">1st Option✅:</span> 1x Pepper, 1x Corn</li>
+    <li><span class="option-label">2nd Option✅:</span> 2x Violet Corn, 2x Lucky Bamboo, 1x Bone Blossom</li>
+    <li><span class="option-label">3rd Option⌛:</span> 1x Bell Pepper, 1x Violet Corn</li>
+    <li><span class="option-label">4th Option⌛:</span> 1x Zenflare, 1x Taco Fern, 1x Cauliflower, 1x Amber Spine, 1x Liberty Lily</li>
+    <li><span class="option-label">5th Option✅:</span> 1x Banana, 1x Pepper, 1x Horsetail</li>
   </ul>
+
   <span class="rarity rarity-mythical">Mythical</span>
   <ul>
     <li><span class="option-label">1st Option✅:</span> 1x Ember Lily, 1x Corn</li>
-    <li><span class="option-label">2nd Option:</span> 1x Corn, 1x Bone Blossom</li>
+    <li><span class="option-label">2nd Option✅:</span> 1x Corn, 1x Bone Blossom</li>
+    <li><span class="option-label">3rd Option🔄:</span> 1x Pepper, 1x Banana</li>
+    <li><span class="option-label">4th Option⌛:</span> 1x Pepper, 1x Violet Corn</li>
+    <li><span class="option-label">5th Option🔄⌛:</span> 1x Cocovine, 1x Bone Blossom, 1x Lumira, 1x Banana, 1x Kiwi</li>
   </ul>
+
   <span class="rarity rarity-divine">Divine</span>
   <ul>
     <li><span class="option-label">1st Option✅:</span> 4x Ember Lily, 1x Corn</li>
     <li><span class="option-label">2nd Option✅:</span> 2x Bone Blossom, 2x Beanstalk, 1x Corn</li>
     <li><span class="option-label">3rd Option✅:</span> 3x Bone Blossom, 1x Banana, 1x Blood Banana</li>
+    <li><span class="option-label">4th Option➡️✅:</span> 3x Bone Blossom, 1x Lucky Bamboo, 1x Violet Corn / Corn</li>
+    <li><span class="option-label">5th Option✅:</span> 3x Beanstalk, 1x Pepper, 1x Corn</li>
   </ul>
+
   <span class="rarity rarity-prismatic">Prismatic</span>
   <ul>
     <li><span class="option-label">1st Option✅:</span> 1x Corn, 4x Bone Blossom</li>
-    <li><span class="option-label">2nd Option✅:</span> 1x Violet Corn, 4x Bone Blossom</li>
+    <li><span class="option-label">3rd Option✅:</span> 1x Violet Corn, 1x Beanstalk, 3x Bone Blossom</li>
+    <li><span class="option-label">4th Option✅🔄:</span> 1x Violet Corn, 1x Elder Strawberry, 3x Bone Blossom</li>
+  </ul>
+
+  <span class="rarity rarity-transcendent">Transcendent</span>
+  <ul>
+    <li><span class="option-label">1st Option🔄✅:</span> 1x Violet Corn, 4x Bone Blossom</li>
+    <li><span class="option-label">2nd Option✅:</span> 1x Corn, 4x Bone Blossom</li>
+    <li><span class="option-label">3rd Option➡️✅:</span> 1x Violet Corn, 1x Lucky Bamboo, 3x Bone Blossom</li>
   </ul>
 </div>
 
-<!-- Ice Cream Section -->
+
 <div id="icecream" class="food">
   <h2>🍨 Ice Cream</h2>
+
   <span class="rarity rarity-normal">Normal</span>
   <ul>
-    <li><span class="option-label">1st Option:</span> 1x Corn, 1x Blueberry</li>
-    <li><span class="option-label">1st Option:</span> 1x Corn, 1x Strawberry</li>
+    <li><span class="option-label">1st Option✅:</span> 1x Corn, 1x Blueberry</li>
+    <li><span class="option-label">2nd Option✅:</span> 1x Corn, 1x Strawberry</li>
   </ul>
+
+  <span class="rarity rarity-rare">Rare</span>
+  <ul>
+    <li><span class="option-label">1st Option⌛:</span> 1x Corn, 1x Raspberry</li>
+  </ul>
+
   <span class="rarity rarity-legendary">Legendary</span>
   <ul>
     <li><span class="option-label">1st Option✅:</span> 2x Banana</li>
+    <li><span class="option-label">2nd Option✅:</span> 1x Banana, 1x Lingonberry</li>
+    <li><span class="option-label">3rd Option✅:</span> 1x Corn, 1x Mango</li>
+    <li><span class="option-label">4th Option✅:</span> 1x Corn, 1x Spiked Mango</li>
+    <li><span class="option-label">5th Option✅:</span> 1x Banana, 1x Coconut</li>
+    <li><span class="option-label">6th Option✅:</span> 1x Sugarglaze, 1x Soft Sunshine</li>
   </ul>
+
   <span class="rarity rarity-mythical">Mythical</span>
   <ul>
     <li><span class="option-label">1st Option✅:</span> 1x Sugar Apple, 1x Banana</li>
     <li><span class="option-label">2nd Option✅:</span> 1x Sugar Apple, 1x Corn</li>
+    <li><span class="option-label">3rd Option✅:</span> 1x Mango, 1x Sugarglaze</li>
+    <li><span class="option-label">4th Option✅ (ftoxical):</span> 1x Corn, 1x Blueberry, 1x Pineapple, 1x Kiwi, 1x Lumira</li>
   </ul>
+
   <span class="rarity rarity-divine">Divine</span>
   <ul>
     <li><span class="option-label">1st Option✅:</span> 1x Sugar Apple, 1x Sugarglaze</li>
-    <li><span class="option-label">2nd Option✅:</span> 3x Sugar Apple, 1x Corn</li>
-    <li><span class="option-label">3rd Option✅:</span> 2x Sugar Apple, 1x Banana, 1x Tranquil Bloom, 1x Bone Blossom</li>
+    <li><span class="option-label">2nd Option✅:</span> 2x Sugar Apple, 1x Banana, 1x Tranquil Bloom, 1x Bone Blossom</li>
+    <li><span class="option-label">3rd Option🔄✅:</span> 1x Banana, 1x Sugar Apple, 3x Ember Lily</li>
+    <li><span class="option-label">4th Option✅:</span> 1x Banana, 1x Apple, 3x Bone Blossom</li>
+    <li><span class="option-label">5th Option✅:</span> 1x Mango, 1x Cacao, 1x Grape, 1x Corn</li>
   </ul>
+
   <span class="rarity rarity-prismatic">Prismatic</span>
   <ul>
-    <li><span class="option-label">1st Option✅:</span> 1x Sugarglaze, 1x Sugar Apple, 3x Bone Blossom</li>
-    <li><span class="option-label">2nd Option✅:</span> 1x Banana, 1x Sugar Apple, 3x Bone Blossom</li>
+    <li><span class="option-label">1st Option🔄✅ (Also Makes Pie, Waffle, Donut, Cake):</span> 1x Sugarglaze, 1x Sugar Apple, 3x Bone Blossom</li>
+    <li><span class="option-label">2nd Option✅🔄:</span> 1x Banana, 1x Sugar Apple, 3x Bone Blossom</li>
+    <li><span class="option-label">3rd Option✅🔄:</span> 1x Banana, 4x Bone Blossom</li>
+    <li><span class="option-label">4th Option🔄✅:</span> 1x Sugarglaze, 2x-4x Bone Blossom</li>
+    <li><span class="option-label">5th Option✅🔄:</span> 3x Sugar Apple, 1x Corn</li>
+    <li><span class="option-label">6th Option✅🔄:</span> 3x Sugar Apple, 1x Sugarglaze</li>
+    <li><span class="option-label">7th Option✅🔄 (ftoxical):</span> 3x Bone Blossom, 1x Corn, 1x Sugar Apple</li>
+  </ul>
+
+  <span class="rarity rarity-transcendent">Transcendent</span>
+  <ul>
+    <li><span class="option-label">1st Option🔄✅ (Also Makes Pie, Waffle, Donut, Cake):</span> 1x Sugarglaze, 1x Sugar Apple, 3x Bone Blossom</li>
   </ul>
 </div>
 
-<!-- Donut Section -->
+
 <div id="donut" class="food">
   <h2>🍩 Donut</h2>
+
   <span class="rarity rarity-normal">Normal</span>
   <ul>
-    <li><span class="option-label">1st Option:</span> 1x Strawberry, 1x Tomato, 1x Apple</li>
-    <li><span class="option-label">2nd Option:</span> 2x Corn, 1x Watermelon</li>
-    <li><span class="option-label">3rd Option:</span> 2x Corn, 1x Banana, 1x Pumpkin</li>
+    <li><span class="option-label">1st Option⌛:</span> 1x Strawberry, 1x Tomato, 1x Apple</li>
+    <li><span class="option-label">2nd Option✅:</span> 2x Corn, 1x Watermelon</li>
+    <li><span class="option-label">3rd Option⌛:</span> 2x Corn, 1x Banana, 1x Pumpkin</li>
   </ul>
+
   <span class="rarity rarity-rare">Rare</span>
   <ul>
-    <li><span class="option-label">1st Option:</span> 1x Corn, 1x Blueberry, 1x Apple</li>
-    <li><span class="option-label">2nd Option:</span> 1x Watermelon, 2x Corn</li>
-    <li><span class="option-label">3rd Option:</span> 2x Corn, 1x Spiked Mango</li>
+    <li><span class="option-label">1st Option✅:</span> 1x Corn, 1x Blueberry, 1x Apple</li>
+    <li><span class="option-label">2nd Option⌛:</span> 1x Watermelon, 1x Corn</li>
+    <li><span class="option-label">3rd Option❌ (Makes Legendary Smoothie):</span> 1x Corn, 1x Spiked Mango</li>
+    <li><span class="option-label">4th Option✅:</span> 1x Tomato, 1x Banana, 2x Corn</li>
+    <li><span class="option-label">5th Option✅:</span> 2x Tomato, 1x Sugarglaze, 2x Rose</li>
+    <li><span class="option-label">6th Option✅:</span> 1x Cauliflower, 4x Candy Blossom</li>
   </ul>
+
   <span class="rarity rarity-legendary">Legendary</span>
   <ul>
-    <li><span class="option-label">1st Option:</span> 1x Corn, 1x Serenity, 1x Sugar Apple</li>
+    <li><span class="option-label">1st Option✅:</span> 1x Corn, 1x Any Crops, 1x Sugar Apple</li>
+    <li><span class="option-label">2nd Option⌛:</span> 1x Sugarglaze, 1x Green Apple, 1x Peach</li>
+    <li><span class="option-label">3rd Option⌛:</span> 1x Sugarglaze, 1x Apple, 1x Peach</li>
+    <li><span class="option-label">4th Option✅:</span> 1x Sugarglaze, 1x Cactus, 1x Banana</li>
+    <li><span class="option-label">5th Option✅🔄:</span> 2x Mango, 2x Corn</li>
   </ul>
+
   <span class="rarity rarity-mythical">Mythical</span>
   <ul>
-    <li><span class="option-label">1st Option✅:</span> 1x Sugar Apple, 2x Corn</li>
+    <li><span class="option-label">1st Option✅:</span> 2x Sugar Apple, 1x Corn</li>
+    <li><span class="option-label">2nd Option✅:</span> 1x Sugar Apple, 2x Corn</li>
+    <li><span class="option-label">3rd Option✅:</span> 2x Cacao, 1x Sugarglaze</li>
+    <li><span class="option-label">4th Option⌛:</span> 1x Sugarglaze, 1x Fossilight, 1x Enkaku, 1x Cactus, 1x Beanstalk</li>
+    <li><span class="option-label">5th Option⌛:</span> 1x Sugarglaze, 1x Burning Bud, 1x Pepper, 1x Corn, 1x Coconut</li>
+    <li><span class="option-label">6th Option✅:</span> 2x Grape, 1x Sugarglaze</li>
   </ul>
+
   <span class="rarity rarity-divine">Divine</span>
   <ul>
-    <li><span class="option-label">1st Option:</span> 1x Bone Blossom, 1x Sugar Apple, 1x Banana</li>
+    <li><span class="option-label">1st Option✅:</span> 1x Banana, 2x Prismatic Crop</li>
+    <li><span class="option-label">2nd Option✅:</span> 1x Sugarglaze, 2x Prismatic Crop</li>
+    <li><span class="option-label">3rd Option✅➡️:</span> 1x Corn, 3x Prismatic Crop (at least 1 Sweet Type)</li>
+    <li><span class="option-label">4th Option✅:</span> 3x Sugar Apple, 1x Taco Fern, 1x Sugarglaze</li>
+    <li><span class="option-label">5th Option✅:</span> 4x Sugar Apple, 1x Sugarglaze</li>
+    <li><span class="option-label">6th Option🔄:</span> 2x Sugar Apple, 1x Veinpetal, 1x Banana, 1x Bone Blossom</li>
+    <li><span class="option-label">7th Option✅🔄:</span> 1x Violet Corn, 2x Sugar Apple</li>
   </ul>
+
   <span class="rarity rarity-prismatic">Prismatic</span>
   <ul>
-    <li><span class="option-label">1st Option:</span> 1x Sugarglaze, 4x Bone Blossom</li>
+    <li><span class="option-label">1st Option🔄✅ (Also Makes Waffle, Pie, Ice Cream, Cake):</span> 1x Sugar Apple, 1x Sugarglaze, 3x Bone Blossom</li>
+    <li><span class="option-label">2nd Option✅🔄:</span> 3x Bone Blossom, 1x Sugar Apple, 1x Banana</li>
+    <li><span class="option-label">3rd Option✅ (Makes Ice Cream & Waffle when craving):</span> 1x Sugarglaze, 2x Bone Blossom</li>
+    <li><span class="option-label">4th Option✅🔄:</span> 1x Taco Fern, 1x Sugarglaze, 3x Bone Blossom</li>
+    <li><span class="option-label">5th Option✅🔄:</span> 1x Banana, 3x-4x Bone Blossom</li>
+  </ul>
+
+  <span class="rarity rarity-transcendent">Transcendent</span>
+  <ul>
+    <li><span class="option-label">1st Option🔄✅:</span> 1x Beanstalk, 1x Sugarglaze, 3x Bone Blossom</li>
+    <li><span class="option-label">2nd Option🔄✅:</span> 1x Sugarglaze, 4x Bone Blossom</li>
   </ul>
 </div>
+
 
 <div id="pizza" class="food">
   <h2>🍕 Pizza</h2>
+
   <span class="rarity rarity-normal">Normal</span>
   <ul>
-    <li><span class="option-label">1st Option:</span> 1x Banana, 1x Tomato</li>
-    <li><span class="option-label">2nd Option:</span> 1x Ember Lily, 1x Corn, 1x Tomato</li>
-    <li><span class="option-label">3rd Option:</span> 1x Giant Pinecone, 1x Corn, 1x Apple, 1x Pepper, 1x Strawberry</li>
-    <li><span class="option-label">4th Option:</span> 1x Strawberry, 1x Pepper, 1x Corn, 1x Tomato</li>
+    <li><span class="option-label">1st Option✅:</span> 1x Strawberry, 1x Pepper, 1x Corn, 1x Tomato</li>
   </ul>
+
   <span class="rarity rarity-legendary">Legendary</span>
   <ul>
     <li><span class="option-label">1st Option✅:</span> 2x Corn, 2x Apple, 1x Pepper</li>
-    <li><span class="option-label">2nd Option:</span> 1x Bell Pepper, 1x Pepper, 1x Tomato, 1x Corn, 1x Peach</li>
+    <li><span class="option-label">2nd Option⌛:</span> 1x Bell Pepper, 1x Pepper, 1x Tomato, 1x Corn, 1x Peach</li>
+    <li><span class="option-label">3rd Option⌛:</span> 1x Cauliflower, 1x Paradise Petal, 2x Blood Banana, 1x Pepper</li>
+    <li><span class="option-label">4th Option✅:</span> 1x Giant Pinecone, 1x Corn, 1x Apple, 1x Pepper, 1x Strawberry</li>
+    <li><span class="option-label">5th Option⌛:</span> 1x Bell Pepper, 1x Pepper, 1x Tomato, 1x Corn, 1x Pineapple</li>
   </ul>
+
   <span class="rarity rarity-mythical">Mythical</span>
   <ul>
     <li><span class="option-label">1st Option✅:</span> 1x Pepper, 1x Tomato, 1x Corn, 2x Sugar Apple</li>
+    <li><span class="option-label">2nd Option✅:</span> 1x Giant Pinecone, 1x Apple, 1x Pepper, 1x Banana, 1x Mushroom</li>
+    <li><span class="option-label">3rd Option✅:</span> 1x Sugar Apple, 1x Pepper, 1x Banana</li>
   </ul>
+
   <span class="rarity rarity-divine">Divine</span>
   <ul>
-    <li><span class="option-label">1st Option✅:</span> 1x Banana, 1x Pepper, 1x BIG Bone Blossom</li>
+    <li><span class="option-label">1st Option✅:</span> 1x Sugar Apple, 1x Corn, 3x Bone Blossom</li>
+    <li><span class="option-label">2nd Option✅:</span> 3x Sugar Apple, 1x Corn, 1x Pepper</li>
+    <li><span class="option-label">3rd Option✅:</span> 1x Pepper, 1x Corn, 1x Sugar Apple, 2x Giant Pinecone</li>
   </ul>
+
   <span class="rarity rarity-prismatic">Prismatic</span>
   <ul>
-    <li><span class="option-label">1st Option✅:</span> 1x Violet Corn, 3x Bone Blossom, 1x Sugar Apple</li>
-    <li><span class="option-label">2nd Option✅:</span> 1x Giant Pinecone, 1x Apple, 1x Pepper, 1x Banana, 1x Mushroom</li>
+    <li><span class="option-label">1st Option✅:</span> 1x Violet Corn, 1x Sugar Apple, 3x Bone Blossom</li>
+    <li><span class="option-label">2nd Option✅:</span> 1x Banana, 1x Beanstalk, 3x Bone Blossom</li>
+    <li><span class="option-label">3rd Option➡️🔄✅:</span> 1x Grand Tomato, 1x Sugarglaze, 3x Bone Blossom</li>
+    <li><span class="option-label">4th Option✅:</span> 1x Sugar Apple, 1x Beanstalk, 1x Sugarglaze, 2x Bone Blossom</li>
+  </ul>
+
+  <span class="rarity rarity-transcendent">Transcendent</span>
+  <ul>
+    <li><span class="option-label">1st Option✅➡️ (Can become Transcendent Cake):</span> 1x Beanstalk, 1x Banana, 3x Bone Blossom</li>
+    <li><span class="option-label">2nd Option✅:</span> 1x Sugar Apple, 1x Corn, 3x Bone Blossom</li>
   </ul>
 </div>
 
-<!-- Sushi Section -->
+
 <div id="sushi" class="food">
   <h2>🍣 Sushi</h2>
+
   <span class="rarity rarity-normal">Normal</span>
   <ul>
+    <li>All Known Recipes contain both Bamboo and Corn/Violet Corn</li>
     <li><span class="option-label">1st Option✅:</span> 4x Bamboo, 1x Corn</li>
   </ul>
+
+  <span class="rarity rarity-rare">Rare</span>
+  <ul>
+    <li><span class="option-label">1st Option✅:</span> 1x Bamboo, 2x Corn, 1x Spiked Mango</li>
+    <li><span class="option-label">2nd Option✅:</span> 1x Corn, 2x Tomato, 1x Bamboo</li>
+  </ul>
+
   <span class="rarity rarity-legendary">Legendary</span>
   <ul>
-    <li><span class="option-label">1st Option:</span> 3x Bamboo, 1x Corn, 1x Maple Apple</li>
-    <li><span class="option-label">2nd Option:</span> 3x Bamboo, 1x Hive Fruit, 1x Corn</li>
+    <li><span class="option-label">1st Option✅:</span> 3x Bamboo, 1x Corn, 1x Maple Apple</li>
+    <li><span class="option-label">2nd Option⌛:</span> 3x Bamboo, 1x Hive Fruit, 1x Corn</li>
     <li><span class="option-label">3rd Option✅:</span> 1x Bamboo, 1x Lilac, 1x Lucky Bamboo, 1x Mango, 1x Violet Corn</li>
   </ul>
+
   <span class="rarity rarity-mythical">Mythical</span>
   <ul>
     <li><span class="option-label">1st Option✅:</span> 2x Bamboo, 1x Corn, 2x Bone Blossom</li>
     <li><span class="option-label">2nd Option✅:</span> 3x Sugar Apple, 1x Bamboo, 1x Corn</li>
+    <li><span class="option-label">3rd Option✅:</span> 1x Corn, 1x Bamboo, 3x Elder Strawberry</li>
+    <li><span class="option-label">4th Option🔄✅:</span> 1x Bamboo, 1x Corn, 2x Bone Blossom</li>
+    <li><span class="option-label">5th Option✅:</span> 1x Bamboo, 1x Corn, 3x Dragon Pepper</li>
   </ul>
+
   <span class="rarity rarity-divine">Divine</span>
   <ul>
-    <li><span class="option-label">1st Option✅:</span> 1x Bamboo, 1x Corn, 3x Bone Blossom</li>
+    <li><span class="option-label">1st Option✅:</span> 1x Corn or 1x Violet Corn, 1x Bamboo, 3x Bone Blossom</li>
   </ul>
+
   <span class="rarity rarity-prismatic">Prismatic</span>
   <ul>
-    <li><span class="option-label">TBA</span></li>
+    <li>TBA</li>
   </ul>
 </div>
 
-<!-- Cake Section -->
+
 <div id="cake" class="food">
   <h2>🎂 Cake</h2>
+
   <span class="rarity rarity-normal">Normal</span>
   <ul>
-    <li><span class="option-label">1st Option:</span> 2x Corn, 2x Strawberry</li>
-    <li><span class="option-label">2nd Option:</span> 2x Blueberry, 1x Corn, 1x Tomato</li>
-    <li><span class="option-label">3rd Option:</span> 1x Ember Lily, 2x Peach</li>
-    <li><span class="option-label">4th Option:</span> 2x Banana, 2x Strawberry, 1x Pumpkin</li>
+    <li><span class="option-label">1st Option✅:</span> 2x Corn, 2x Strawberry</li>
+    <li><span class="option-label">2nd Option✅:</span> 2x Blueberry, 1x Corn, 1x Tomato</li>
+    <li><span class="option-label">3rd Option✅:</span> 2x Banana, 2x Strawberry, 1x Pumpkin</li>
   </ul>
+
   <span class="rarity rarity-rare">Rare</span>
   <ul>
-    <li><span class="option-label">1st Option:</span> 2x Corn, 2x Watermelon</li>
-    <li><span class="option-label">2nd Option:</span> 2x Corn, 2x Banana, 1x Watermelon</li>
-    <li><span class="option-label">3rd Option:</span> 1x Blueberry, 1x Grape, 1x Apple, 1x Corn</li>
+    <li><span class="option-label">1st Option✅:</span> 2x Corn, 2x Watermelon</li>
+    <li><span class="option-label">2nd Option✅:</span> 2x Corn, 2x Banana, 1x Watermelon</li>
+    <li><span class="option-label">3rd Option✅:</span> 1x Blueberry, 1x Grape, 1x Apple, 1x Corn</li>
+    <li><span class="option-label">4th Option✅:</span> 2x Tomato, 2x Banana</li>
   </ul>
+
   <span class="rarity rarity-legendary">Legendary</span>
   <ul>
-    <li><span class="option-label">1st Option:</span> 2x Kiwi, 2x Banana or Corn</li>
+    <li><span class="option-label">1st Option✅:</span> 2x Kiwi, 2x Banana</li>
     <li><span class="option-label">2nd Option✅:</span> 2x Banana, 1x Blood Banana, 1x Moon Melon, 1x Soft Sunshine</li>
+    <li><span class="option-label">3rd Option✅:</span> 2x Corn, 2x Mango <em>(Made when Chris P. isn't craving donuts, else it's a legendary donut)</em></li>
+    <li><span class="option-label">4th Option⌛:</span> 1x Cauliflower, 1x Apple, 1x Sugar Apple, 1x Corn, 1x Tomato <em>(Found when someone was trying to just make a regular soup)</em></li>
   </ul>
+
   <span class="rarity rarity-mythical">Mythical</span>
   <ul>
-    <li><span class="option-label">1st Option:</span> 2x Sugar Apple, 2x Corn</li>
-    <li><span class="option-label">2nd Option:</span> 4x Sweet Type Crops, 4x Corn</li>
-    <li><span class="option-label">3rd Option:</span> 1x Sakura Bush, 1x Cacao, 1x Corn, 1x Giant Pinecone, 1x Spiked Mango</li>
-    <li><span class="option-label">4th Option:</span> 1x Banana or Corn, 1x Kiwi, 3x Bone Blossom</li>
+    <li><span class="option-label">1st Option✅:</span> 2x Sugar Apple, 2x Corn</li>
+    <li><span class="option-label">2nd Option:</span> 4x Sweet Type Crops, 1x Corn</li>
+    <li><span class="option-label">3rd Option✅:</span> 1x Sakura Bush, 1x Cacao, 1x Corn, 1x Giant Pinecone, 1x Spiked Mango</li>
+    <li><span class="option-label">4th Option✅:</span> 1x Sakura Bush, 1x Sugar Apple, 1x Corn, 1x Bone Blossom</li>
+    <li><span class="option-label">5th Option⌛:</span> 1x Banana or Corn, 1x Kiwi, 3x Bone Blossom</li>
   </ul>
+
   <span class="rarity rarity-divine">Divine</span>
   <ul>
-    <li><span class="option-label">1st Option:</span> 1x Banana, 4x Sugar Apple</li>
-    <li><span class="option-label">2nd Option:</span> 1x Corn, 2x Elder Strawberry, 2x Sugar Apple</li>
-    <li><span class="option-label">3rd Option:</span> 1x Banana, 4x Elephant Ears</li>
-    <li><span class="option-label">4th Option:</span> 1x Corn, 1x Watermelon, 3x Bone Blossom</li>
+    <li><span class="option-label">1st Option✅:</span> 1x Banana, 3x Prismatic Crop</li>
+    <li><span class="option-label">2nd Option✅:</span> 1x Corn, 2x Elder Strawberry, 2x Sugar Apple</li>
+    <li><span class="option-label">3rd Option🔄:</span> 1x Corn, 1x Sugar Apple, 2x Prismatic Crop</li>
+    <li><span class="option-label">4th Option✅:</span> 1x Corn, 4x Sugar Apple</li>
   </ul>
+
   <span class="rarity rarity-prismatic">Prismatic</span>
   <ul>
-    <li><span class="option-label">1st Option✅:</span> 1x Banana, 4x Bone Blossom</li>
+    <li><span class="option-label">1st Option✅:</span> 1x Sugarglaze, 1x Sugar Apple, 3x Bone Blossom <em>(Swaps to Pie, Waffle, Ice Cream, and Donut, if craving)</em></li>
+    <li><span class="option-label">2nd Option🔄✅:</span> 1x Banana, 3x-4x Bone Blossom</li>
+    <li><span class="option-label">3rd Option:</span> 3x Beanstalk, 1x Grand Volcania, 1x Banana</li>
+  </ul>
+
+  <span class="rarity rarity-transcendent">Transcendent</span>
+  <ul>
+    <li><span class="option-label">1st Option🔄✅:</span> 1x Banana, 1x Sugar Apple, 3x Bone Blossom</li>
   </ul>
 </div>
+
 
 <div id="burger" class="food">
   <h2>🍔 Burger</h2>
+
   <span class="rarity rarity-legendary">Legendary</span>
   <ul>
-    <li><span class="option-label">1st Option:</span> 1x Pepper, 1x Corn, 1x Tomato</li>
-    <li><span class="option-label">2nd Option:</span> 2x Bell Pepper, 1x Violet Corn</li>
+    <li><span class="option-label">1st Option✅:</span> 1x Pepper, 1x Corn, 1x Tomato</li>
+    <li><span class="option-label">2nd Option✅️:</span> 2x Bell Pepper, 1x Violet Corn</li>
   </ul>
+
   <span class="rarity rarity-mythical">Mythical</span>
   <ul>
-    <li><span class="option-label">1st Option:</span> 1x Pepper, 1x Corn, 1x Tomato, 1x Bone Blossom, 1x Beanstalk</li>
-    <li><span class="option-label">2nd Option:</span> 1x Pepper, 1x Corn, 1x Tomato, 2x Beanstalk</li>
-    <li><span class="option-label">3rd Option:</span> 1x Sugar Apple, 1x Pepper, 1x Corn, 1x Tomato, 1x Sugar Apple</li>
+    <li><span class="option-label">1st Option✅️:</span> 1x Pepper, 1x Corn, 1x Tomato, 1x Bone Blossom, 1x Beanstalk</li>
+    <li><span class="option-label">2nd Option✅️:</span> 1x Pepper, 1x Corn, 1x Tomato, 2x Beanstalk</li>
+    <li><span class="option-label">3rd Option✅️:</span> 2x Sugar Apple, 1x Pepper, 1x Corn, 1x Tomato</li>
+    <li><span class="option-label">4th Option✅️:</span> 1x Ember Lily, 2x Beanstalk, 1x Corn, 1x Artichoke</li>
   </ul>
+
   <span class="rarity rarity-divine">Divine</span>
   <ul>
-    <li><span class="option-label">1st Option✅:</span> 1x Corn, 1x Tomato, 3x Bone Blossom</li>
+    <li><span class="option-label">1st Option✅️:</span> 1x Corn or Violet Corn, 1x Tomato, 3x Bone Blossom</li>
+    <li><span class="option-label">2nd Option✅️:</span> 1x Sugarglaze, 1x Tomato, 3x Bone Blossom</li>
+    <li><span class="option-label">3rd Option✅️:</span> 1x Corn, 1x Tomato or Grand Tomato, 1x Elder Strawberry, 2x Bone Blossom</li>
   </ul>
+
   <span class="rarity rarity-prismatic">Prismatic</span>
   <ul>
-    <li><span class="option-label">1st Option✅:</span> 1x Violet Corn, 1x Tomato, 3x Bone Blossom</li>
+    <li><span class="option-label">1st Option✅️:</span> 1x Sugarglaze, 1x Grand Tomato, 3x Bone Blossom</li>
+  </ul>
+
+  <span class="rarity rarity-transcendent">Transcendent</span>
+  <ul>
+    <li><span class="option-label">1st Option✅️:</span> 1x Sugarglaze, 1x Grand Tomato, 3x Bone Blossom</li>
+  </ul>
+</div>
+
+
+<div id="smoothie" class="food">
+  <h2>🥤 Smoothie</h2>
+
+  <span class="rarity rarity-mythical">Mythical</span>
+  <ul>
+    <li><span class="option-label">1st Option✅:</span> 1x Jalapeno, 1x Crown Melon, 1x Lingonberry, 1x Bell Pepper</li>
+    <li><span class="option-label">2nd Option✅:</span> 5x Apple</li>
+    <li><span class="option-label">3rd Option✅:</span> 1x Coconut, 1x Carrot, 1x Mushroom, 1x Watermelon</li>
+  </ul>
+
+  <span class="rarity rarity-divine">Divine</span>
+  <ul>
+    <li><span class="option-label">1st Option⌛:</span> 1x Dragon Fruit, 1-2x Coconut, 1x Rosy Delight, 1x Moonflower</li>
+    <li><span class="option-label">2nd Option⌛:</span> 1x Coconut, 1x Beanstalk</li>
+    <li><span class="option-label">3rd Option⌛:</span> 3x Coconut, 2x Sugar Apple</li>
+    <li><span class="option-label">4th Option⌛:</span> 1x Coconut, 1x Giant Pinecone</li>
+    <li><span class="option-label">5th Option⌛:</span> 1x Mango, 1x Sugar Apple</li>
+    <li><span class="option-label">6th Option✅:</span> 5x Mango</li>
+    <li><span class="option-label">7th Option⌛:</span> 1x Pepper, 1x Grape, 1x Giant Pinecone</li>
+  </ul>
+
+  <span class="rarity rarity-prismatic">Prismatic</span>
+  <ul>
+    <li><span class="option-label">1st Option:</span> 3x Sugar Apple, 1-2x Coconut</li>
+    <li><span class="option-label">2nd Option:</span> 2x Bone Blossom, 1x Coconut</li>
+    <li><span class="option-label">3rd Option:</span> 1x Elephant Ears, 1x Easter Egg, 1x Grape, 1x Moon Blossom, 1x Elder Strawberry</li>
+    <li><span class="option-label">4th Option✅:</span> 1x Sugar Apple, 1x Ember Lily</li>
+    <li><span class="option-label">5th Option✅:</span> 4x Bone Blossom, 1x Strawberry</li>
+    <li><span class="option-label">6th Option:</span> 1x Maple Apple, 1x Coconut, 1x Sugar Apple, 1x Elder Strawberry</li>
+  </ul>
+
+  <span class="rarity rarity-transcendent">Transcendent</span>
+  <ul>
+    <li><span class="option-label">1st Option✅:</span> 1x Sugar Apple, 1x Coconut, 3x Bone Blossom</li>
+    <li><span class="option-label">2nd Option❌:</span> 1x Sugar Apple, 1x Bone Blossom</li>
+    <li><span class="option-label">3rd Option:</span> 3x Bone Blossom, 1x Coconut</li>
+    <li><span class="option-label">4th Option✅:</span> 1x Sugar Apple, 4x Prismatic Crop</li>
+    <li><span class="option-label">5th Option:</span> 4x Sugar Apple</li>
+    <li><span class="option-label">6th Option:</span> 4x Bone Blossom, 1x Moon Melon</li>
+    <li><span class="option-label">7th Option✅:</span> 3x Bone Blossom, 1x Sugar Apple, 1x Burning Bud</li>
+  </ul>
+</div>
+
+<div id="candyapple" class="food">
+  <h2>🍏 Candy Apple</h2>
+
+  <span class="rarity rarity-divine">Divine</span>
+  <ul>
+    <li><span class="option-label">1st Option🔄✅:</span> 1x Banana, 1x Sugar Apple, 3x Bone Blossom</li>
+    <li><span class="option-label">2nd Option🔄✅:</span> 2x Jalapeno, 2x Sugar Apple</li>
+  </ul>
+
+  <span class="rarity rarity-prismatic">Prismatic</span>
+  <ul>
+    <li><span class="option-label">1st Option🔄:</span> 1x Sugar Apple, 1x Ember Lily</li>
+    <li><span class="option-label">2nd Option🔄✅:</span> 1x Bone Blossom, 1x Elder Strawberry, 1x Carrot, 1x Sugar Apple</li>
+  </ul>
+
+  <span class="rarity rarity-transcendent">Transcendent</span>
+  <ul>
+    <li><span class="option-label">1st Option🔄✅:</span> 1x Sugar Apple, 1x Sugarglaze</li>
+    <li><span class="option-label">2nd Option🔄:</span> 1x Sugar Apple, 1x Amber Spine</li>
+    <li><span class="option-label">3rd Option🔄✅:</span> 1x Sugar Apple, 1x Sugarglaze, 3x Bone Blossom</li>
+    <li><span class="option-label">4th Option✅:</span> 4x Sugar Apple</li>
+    <li><span class="option-label">5th Option🔄✅:</span> 2x Sugar Apple, 3x Bone Blossom</li>
+    <li><span class="option-label">6th Option🔄✅:</span> 1x Sugar Apple, 4x Elder Strawberry</li>
+    <li><span class="option-label">7th Option🔄✅:</span> 1x Hive Fruit, 1x Sugar Apple, 3x Bone Blossom (Also makes smoothie)</li>
+    <li><span class="option-label">8th Option🔄:</span> 3x Sugar Apple, 1x Bone Blossom</li>
+  </ul>
+</div>
+
+<div id="sweettea" class="food">
+  <h2>🫖 Sweet Tea</h2>
+  <span class="rarity rarity-prismatic">Prismatic</span>
+  <ul>
+    <li><span class="option-label">1st Option⌛:</span> 1x Burning Bud, 4x Sugar Apple</li>
+  </ul>
+  <span class="rarity rarity-transcendent">Transcendent</span>
+  <ul>
+    <li><span class="option-label">1st Option✅:</span> 2x Candy Blossom, 3x Bone Blossom</li>
+    <li><span class="option-label">3rd Option:</span> 1x Burning Bud, 1x Sugar Apple, 3x Bone Blossom</li>
+  </ul>
+</div>
+
+<div id="porridge" class="food">
+  <h2>🥣 Porridge</h2>
+
+  <span class="rarity rarity-prismatic">Prismatic</span>
+  <ul>
+    <li><span class="option-label">1st Option✅:</span> 1x Corn, 4x Sugar Apple</li>
+    <li><span class="option-label">2nd Option✅:</span> 2x Bone Blossom, 1x Sugar Apple, 1x Sugarglaze, 1x Banana</li>
+    <li><span class="option-label">3rd Option:</span> 1x Sugar Apple, 1x Candy Blossom, 3x Bone Blossom</li>
+    <li><span class="option-label">4th Option🔄✅:</span> 1x Corn, 1x Grand Volcania, 1x Rosy Delight, 1x Sugar Apple, 1x Bone Blossom</li>
+  </ul>
+  <span class="rarity rarity-transcendent">Transcendent</span>
+  <ul>
+    <li><span class="option-label">1st Option❌ (makes prismatic):</span> 3x Bone Blossom, 1x Sugar Apple, 1x Corn</li>
+    <li><span class="option-label">2nd Option✅:</span> 1x Dragon Pepper, 1x Peach, 1x Burning Bud</li>
+  </ul>
+</div>
+
+<div id="spaghetti" class="food">
+  <h2>🍝 Spaghetti</h2>
+
+  <span class="rarity rarity-transcendent">Transcendent</span>
+  <ul>
+    <li><span class="option-label">1st Option:</span> 1x Pepper, 1x Corn, 1x Tomato, 2x Bone Blossom</li>
   </ul>
 </div>
 
@@ -538,6 +994,5 @@
   </script>
 </body>
 </html>
-
 
 
